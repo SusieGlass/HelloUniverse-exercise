@@ -20,8 +20,7 @@ public class HelloUniverse {
         mars.nom = "Mars";
         mars.matiere = "tellurique";
         mars.diametre = 6792;
-        mars.accueillirVaisseau(8);
-        mars.accueillirVaisseau("FREGATE");
+
 
 
         Planete jupiter = new Planete();
@@ -44,6 +43,19 @@ public class HelloUniverse {
         neptune.matiere = "gazeuse";
         neptune.diametre = 49532;
 
+        Vaisseau fregate = new Vaisseau();
+        fregate.type = "FREGATE";
+        fregate.nbPassagers = 9;
+        mars.accueillirVaisseau(fregate);
+
+        Vaisseau croiseur = new Vaisseau();
+        croiseur.type = "CROISEUR";
+        croiseur.nbPassagers = 42;
+        mars.accueillirVaisseau(croiseur);
+
+        Vaisseau chasseur = new Vaisseau();
+        chasseur.type = "CHASSEUR";
+
         /*System.out.println(jupiter.nom + " est une planète " + jupiter.matiere + " avec un diamètre de " + jupiter.diametre+ " kilomètres.");
 
         System.out.println(neptune.nom + " a effectué " + neptune.revolution(-3542) + " tours complets autour de son étoile." );
@@ -52,7 +64,9 @@ public class HelloUniverse {
 
         System.out.println(venus.nom + " a effectué " + venus.rotation(1250)+ " tours sur elle-même." );*/
 
-        System.out.println("Le nombre d'humains ayant déjà séjourné sur " + mars.nom + " est actuellement de " + mars.totalVisiteurs + ".");
-        }
+        System.out.println("Le nombre d'humains ayant déjà séjourné sur " + mars.nom + " est actuellement de " + mars.nbTotalHumains + ".");
+        System.out.println("La forme d'une planète est : " + Planete.forme);
+        System.out.println("La forme de " + mars.nom + " est " + Planete.forme);
+    }
     }
 
