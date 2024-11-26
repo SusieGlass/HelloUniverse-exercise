@@ -1,5 +1,5 @@
 public class Planete {
-    
+
     static String forme = "sphérique";
     static  int nbPlanetesDecouvertes = 0;
 
