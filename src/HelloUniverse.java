@@ -67,6 +67,7 @@ public class HelloUniverse {
         System.out.println("Le nombre d'humains ayant déjà séjourné sur " + mars.nom + " est actuellement de " + mars.nbTotalHumains + ".");
         System.out.println("La forme d'une planète est : " + Planete.forme);
         System.out.println("La forme de " + mars.nom + " est " + Planete.forme);
+        System.out.println("Le nombre de planètes découvertes est actuellement de " + Planete.nbPlanetesDecouvertes);
     }
     }
 

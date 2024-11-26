@@ -1,11 +1,19 @@
 public class Planete {
+    
+    static String forme = "sphérique";
+    static  int nbPlanetesDecouvertes = 0;
+
     String nom;
     String matiere;
     long diametre;
     int nbTotalHumains = 0;
     Atmosphere atmosphere;
     Vaisseau vaisseauAccoste;
-    static String forme = "sphérique";
+
+
+    Planete(){
+        nbPlanetesDecouvertes++;
+    }
 
     int revolution(int angle) {
         return angle / 360;
