@@ -11,7 +11,8 @@ public class Planete {
     Vaisseau vaisseauAccoste;
 
 
-    Planete(){
+    Planete(String nom){
+        this.nom = nom;
         nbPlanetesDecouvertes++;
     }
 
