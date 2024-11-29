@@ -33,7 +33,23 @@ public class HelloUniverse {
         neptune.matiere = "gazeuse";
         neptune.diametre = 49532;
 
-        Vaisseau fregate = new Vaisseau();
+        VaisseauDeGuerre chasseur = new VaisseauDeGuerre();
+        chasseur.type = "CHASSEUR";
+        chasseur.blindage = 156;
+        chasseur.resistanceDuBouclier = 2;
+        chasseur.activerBouclier();
+
+        VaisseauCivil vaisseauMonde = new VaisseauCivil();
+        vaisseauMonde.type = "Vaisseau-Monde";
+        vaisseauMonde.blindage = 4784;
+        vaisseauMonde.resistanceDuBouclier = 30;
+        vaisseauMonde.activerBouclier();
+
+        chasseur.attaque(vaisseauMonde, "lasers photoniques", 3);
+        vaisseauMonde.desactiverBouclier();
+
+
+        /*Vaisseau fregate = new Vaisseau();
         fregate.type = "FREGATE";
         fregate.nbPassagers = 9;
         mars.accueillirVaisseau(fregate);
@@ -44,7 +60,7 @@ public class HelloUniverse {
         mars.accueillirVaisseau(croiseur);
 
         Vaisseau chasseur = new Vaisseau();
-        chasseur.type = "CHASSEUR";
+        chasseur.type = "CHASSEUR";*/
 
         /*System.out.println(jupiter.nom + " est une planète " + jupiter.matiere + " avec un diamètre de " + jupiter.diametre+ " kilomètres.");
 
@@ -52,12 +68,15 @@ public class HelloUniverse {
 
         System.out.println(mars.nom + " a effectué " + mars.rotation(-684) + " tours sur elle-même." );
 
-        System.out.println(venus.nom + " a effectué " + venus.rotation(1250)+ " tours sur elle-même." );*/
+        System.out.println(venus.nom + " a effectué " + venus.rotation(1250)+ " tours sur elle-même." );
 
         System.out.println("Le nombre d'humains ayant déjà séjourné sur " + mars.nom + " est actuellement de " + mars.nbTotalHumains + ".");
         System.out.println("La forme d'une planète est : " + Planete.forme);
         System.out.println("La forme de " + mars.nom + " est " + Planete.forme);
-        System.out.println("Le nombre de planètes découvertes est actuellement de " + Planete.nbPlanetesDecouvertes);
+        System.out.println("Le nombre de planètes découvertes est actuellement de " + Planete.nbPlanetesDecouvertes);*/
+        System.out.println(vaisseauMonde.blindage);
+        System.out.println(vaisseauMonde.resistanceDuBouclier);
+
     }
     }
 
