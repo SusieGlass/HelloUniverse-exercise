@@ -1,41 +1,40 @@
 public class HelloUniverse {
     public static void main(String[] args) {
 
-        Planete mercure = new Planete("Mercure");
-        mercure.matiere = "tellurique";
+        PlaneteTellurique mercure = new PlaneteTellurique("Mercure");
         mercure.diametre = 4880;
 
-        Planete venus = new Planete("Venus");
-        venus.matiere = "tellurique";
+        PlaneteTellurique venus = new PlaneteTellurique("Venus");
         venus.diametre = 12100;
 
-        Planete terre = new Planete("Terre");
-        terre.matiere = "tellurique";
+        PlaneteTellurique terre = new PlaneteTellurique("Terre");
         terre.diametre = 12756;
 
-        Planete mars = new Planete("Mars");
-        mars.matiere = "tellurique";
+        PlaneteTellurique mars = new PlaneteTellurique("Mars");
         mars.diametre = 6792;
 
-        Planete jupiter = new Planete("Jupiter");
-        jupiter.matiere = "gazeuse";
+        VaisseauCivil vaisseauMonde = new VaisseauCivil();
+        vaisseauMonde.type = "Vaisseau-Monde";
+
+
+        PlaneteGazeuse jupiter = new PlaneteGazeuse("Jupiter");
         jupiter.diametre = 142984;
 
-        Planete saturne = new Planete("Saturne");
-        saturne.matiere = "gazeuse";
+        PlaneteGazeuse saturne = new PlaneteGazeuse("Saturne");
         saturne.diametre = 120536;
 
-        Planete uranus = new Planete("Uranus");
-        uranus.matiere = "gazeuse";
+        PlaneteGazeuse uranus = new PlaneteGazeuse("Uranus");
         uranus.diametre = 51118;
 
-        Planete neptune = new Planete("Neptune");
-        neptune.matiere = "gazeuse";
+        PlaneteGazeuse neptune = new PlaneteGazeuse("Neptune");
         neptune.diametre = 49532;
 
         VaisseauDeGuerre chasseur = new VaisseauDeGuerre();
         chasseur.type = "CHASSEUR";
-        chasseur.blindage = 156;
+
+        mars.accueillirVaisseau(vaisseauMonde);
+        mars.accueillirVaisseau(chasseur);
+        /*chasseur.blindage = 156;
         chasseur.resistanceDuBouclier = 2;
         chasseur.activerBouclier();
 
@@ -46,7 +45,7 @@ public class HelloUniverse {
         vaisseauMonde.activerBouclier();
 
         chasseur.attaque(vaisseauMonde, "lasers photoniques", 3);
-        vaisseauMonde.desactiverBouclier();
+        vaisseauMonde.desactiverBouclier();*/
 
 
         /*Vaisseau fregate = new Vaisseau();
@@ -74,8 +73,8 @@ public class HelloUniverse {
         System.out.println("La forme d'une planète est : " + Planete.forme);
         System.out.println("La forme de " + mars.nom + " est " + Planete.forme);
         System.out.println("Le nombre de planètes découvertes est actuellement de " + Planete.nbPlanetesDecouvertes);*/
-        System.out.println(vaisseauMonde.blindage);
-        System.out.println(vaisseauMonde.resistanceDuBouclier);
+        /*System.out.println(vaisseauMonde.blindage);
+        System.out.println(vaisseauMonde.resistanceDuBouclier);*/
 
     }
     }
