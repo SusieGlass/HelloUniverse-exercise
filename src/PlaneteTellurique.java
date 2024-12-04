@@ -7,7 +7,13 @@ public class PlaneteTellurique  extends Planete implements Habitable{
     }
     @Override
     public Vaisseau accueillirVaisseau(Vaisseau vaisseau) {
+
+        if (vaisseau instanceof VaisseauDeGuerre){
+            ( (VaisseauDeGuerre)vaisseau).desactiverArmes();
+        }
+
         nbTotalHumains += vaisseau.nbPassagers;
+
         if (vaisseauAccoste == null){
             System.out.println("Aucun vaisseau ne s'en va.");
         } else {
