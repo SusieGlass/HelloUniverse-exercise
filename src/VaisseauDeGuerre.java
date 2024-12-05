@@ -1,6 +1,12 @@
 public class VaisseauDeGuerre extends Vaisseau {
     boolean armesDesactivees;
 
+    @Override
+    void activerBouclier() {
+        desactiverArmes();
+        super.activerBouclier();
+    }
+
     void attaque(Vaisseau cible, String weaponUsed, int attackTime) {
         if (armesDesactivees) {
             System.out.println("Attaque impossible, l'armement est désactivé");

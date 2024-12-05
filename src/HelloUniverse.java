@@ -13,10 +13,6 @@ public class HelloUniverse {
         PlaneteTellurique mars = new PlaneteTellurique("Mars");
         mars.diametre = 6792;
 
-        VaisseauCivil vaisseauMonde = new VaisseauCivil();
-        vaisseauMonde.type = "Vaisseau-Monde";
-
-
         PlaneteGazeuse jupiter = new PlaneteGazeuse("Jupiter");
         jupiter.diametre = 142984;
 
@@ -29,23 +25,20 @@ public class HelloUniverse {
         PlaneteGazeuse neptune = new PlaneteGazeuse("Neptune");
         neptune.diametre = 49532;
 
-        VaisseauDeGuerre chasseur = new VaisseauDeGuerre();
+        Vaisseau chasseur = new VaisseauDeGuerre();
         chasseur.type = "CHASSEUR";
-
-        mars.accueillirVaisseau(vaisseauMonde);
-        mars.accueillirVaisseau(chasseur);
-        /*chasseur.blindage = 156;
+        chasseur.blindage = 156;
         chasseur.resistanceDuBouclier = 2;
         chasseur.activerBouclier();
 
-        VaisseauCivil vaisseauMonde = new VaisseauCivil();
+        Vaisseau vaisseauMonde = new VaisseauCivil();
         vaisseauMonde.type = "Vaisseau-Monde";
         vaisseauMonde.blindage = 4784;
         vaisseauMonde.resistanceDuBouclier = 30;
         vaisseauMonde.activerBouclier();
 
-        chasseur.attaque(vaisseauMonde, "lasers photoniques", 3);
-        vaisseauMonde.desactiverBouclier();*/
+        ((VaisseauDeGuerre)chasseur).attaque(vaisseauMonde, "lasers photoniques", 3);
+        vaisseauMonde.desactiverBouclier();
 
 
         /*Vaisseau fregate = new Vaisseau();
@@ -59,8 +52,12 @@ public class HelloUniverse {
         mars.accueillirVaisseau(croiseur);
 
         Vaisseau chasseur = new Vaisseau();
-        chasseur.type = "CHASSEUR";*/
+        chasseur.type = "CHASSEUR";
 
+        mars.accueillirVaisseau(vaisseauMonde);
+        mars.accueillirVaisseau(chasseur);*/
+
+        
         /*System.out.println(jupiter.nom + " est une planète " + jupiter.matiere + " avec un diamètre de " + jupiter.diametre+ " kilomètres.");
 
         System.out.println(neptune.nom + " a effectué " + neptune.revolution(-3542) + " tours complets autour de son étoile." );
