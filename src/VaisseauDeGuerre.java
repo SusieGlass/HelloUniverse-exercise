@@ -1,6 +1,18 @@
 public class VaisseauDeGuerre extends Vaisseau {
     boolean armesDesactivees;
 
+    VaisseauDeGuerre(String type) {
+        this.type = type;
+        if (type.equals("CHASSEUR")) {
+            tonnageMax = 0;
+        } else if (type.equals("FREGATE")) {
+            tonnageMax = 50;
+        } else if (type.equals("CROISEUR")) {
+            tonnageMax = 100;
+        }
+    }
+
+
     @Override
     void activerBouclier() {
         desactiverArmes();
@@ -16,8 +28,29 @@ public class VaisseauDeGuerre extends Vaisseau {
             cible.blindage = cible.blindage / 2;
         }
     }
-    void desactiverArmes(){
+
+    void desactiverArmes() {
         armesDesactivees = true;
         System.out.println("Désactivation des armes d'un vaisseau de type " + type);
+    }
+
+    @Override
+    int emporterCargaison(int cargaison) {
+        if (type.equals("CHASSEUR")) {
+            return cargaison;
+        } else if (nbPassagers < 12) {
+            return cargaison;
+        } else {
+            int tonnagePassager = nbPassagers * 2;
+            int tonnageRestant = tonnageMax - tonnageActuel;
+            int tonnageAConsiderer = (tonnagePassager < tonnageRestant ? tonnagePassager : tonnageRestant);
+            if (cargaison > tonnageAConsiderer) {
+                tonnageActuel = tonnageMax;
+                return cargaison - tonnageAConsiderer;
+            } else {
+                tonnageActuel = tonnageActuel + cargaison;
+                return 0;
+            }
         }
+    }
 }

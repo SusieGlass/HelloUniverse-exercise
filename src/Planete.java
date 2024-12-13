@@ -1,11 +1,9 @@
-public class Planete {
-
-    static String forme = "sphérique";
-    static  int nbPlanetesDecouvertes = 0;
-
+public abstract class Planete {
     String nom;
     long diametre;
     Atmosphere atmosphere;
+    static String forme = "sphérique";
+    static  int nbPlanetesDecouvertes;
 
     Planete(String nom){
         this.nom = nom;

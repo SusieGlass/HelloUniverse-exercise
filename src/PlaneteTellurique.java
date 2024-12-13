@@ -5,6 +5,7 @@ public class PlaneteTellurique  extends Planete implements Habitable{
     PlaneteTellurique(String nom) {
         super(nom);
     }
+
     @Override
     public Vaisseau accueillirVaisseau(Vaisseau vaisseau) {
 
