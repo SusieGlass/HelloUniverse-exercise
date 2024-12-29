@@ -27,19 +27,27 @@ public class HelloUniverse {
         PlaneteGazeuse neptune = new PlaneteGazeuse("Neptune");
         neptune.diametre = 49532;
 
-        Vaisseau chasseur = new VaisseauDeGuerre("CHASSEUR");
+        Atmosphere atmosphereUranus = new Atmosphere();
+        atmosphereUranus.tauxHydrogene = 83f;
+        atmosphereUranus.tauxHelium = 15f;
+        atmosphereUranus.tauxMethane = 2.5f;
+        atmosphereUranus.tauxAzote = 0.0f;
+
+        uranus.atmosphere = atmosphereUranus;
+
+        Vaisseau chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
         chasseur.nbPassagers = 100;
 
-        Vaisseau fregate = new VaisseauDeGuerre("FREGATE");
+        Vaisseau fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
         fregate.nbPassagers = 60;
 
-        Vaisseau croiseur = new VaisseauDeGuerre("CROISEUR");
+        Vaisseau croiseur = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
         croiseur.nbPassagers = 50;
 
-        Vaisseau vaisseauMonde = new VaisseauCivil("VAISSEAU-MONDE");
+        Vaisseau vaisseauMonde = new VaisseauCivil(TypeVaisseau.VAISSEAUMONDE);
         vaisseauMonde.nbPassagers = 150;
 
-        Vaisseau cargo = new VaisseauCivil("CARGO");
+        Vaisseau cargo = new VaisseauCivil(TypeVaisseau.CARGO);
         cargo.nbPassagers = 160;
 
         System.out.println("Quel vaisseau souhaitez-vous sélectionner? Veuillez indiquer son nom.");
@@ -52,21 +60,22 @@ public class HelloUniverse {
         System.out.println("Quel tonnage souhaitez vous embarquer");
         int cargaison = sc.nextInt();
 
+        TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(vaisseauSelection);
         Vaisseau vaisseau = null;
-        switch (vaisseauSelection){
-            case "CHASSEUR":
+        switch (typeVaisseau){
+            case CHASSEUR:
                 vaisseau = chasseur;
                 break;
-            case "FREGATE":
+            case FREGATE:
                 vaisseau = fregate;
                 break;
-            case "CROISEUR":
+            case CROISEUR:
                 vaisseau = croiseur;
                 break;
-            case "CARGO":
+            case CARGO:
                 vaisseau = cargo;
                 break;
-            case "VAISSEAU-MONDE":
+            case VAISSEAUMONDE:
                 vaisseau = vaisseauMonde;
                 break;
         }
@@ -91,6 +100,7 @@ public class HelloUniverse {
 
  int rejet = vaisseau.emporterCargaison(cargaison);
         System.out.println("Le rejet est de " + rejet);
+
 
 
     }
