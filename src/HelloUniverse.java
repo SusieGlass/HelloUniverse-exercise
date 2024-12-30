@@ -3,16 +3,16 @@ import java.util.Scanner;
 public class HelloUniverse {
     public static void main(String[] args) {
 
-        PlaneteTellurique mercure = new PlaneteTellurique("Mercure");
+        PlaneteTellurique mercure = new PlaneteTellurique("Mercure", 1);
         mercure.diametre = 4880;
 
-        PlaneteTellurique venus = new PlaneteTellurique("Venus");
+        PlaneteTellurique venus = new PlaneteTellurique("Venus", 2);
         venus.diametre = 12100;
 
-        PlaneteTellurique terre = new PlaneteTellurique("Terre");
+        PlaneteTellurique terre = new PlaneteTellurique("Terre", 10);
         terre.diametre = 12756;
 
-        PlaneteTellurique mars = new PlaneteTellurique("Mars");
+        PlaneteTellurique mars = new PlaneteTellurique("Mars", 3);
         mars.diametre = 6792;
 
         PlaneteGazeuse jupiter = new PlaneteGazeuse("Jupiter");
@@ -50,59 +50,68 @@ public class HelloUniverse {
         Vaisseau cargo = new VaisseauCivil(TypeVaisseau.CARGO);
         cargo.nbPassagers = 160;
 
-        System.out.println("Quel vaisseau souhaitez-vous sélectionner? Veuillez indiquer son nom.");
         Scanner sc = new Scanner(System.in);
-        String vaisseauSelection = sc.nextLine();
 
-        System.out.println("Sur quelle planète tellurique souhaitez-vous vous poser? Veuillez indiquer le nom de la planète.");
-        String planeteSelection = sc.nextLine();
+        String recommencer;
+        do {
+            System.out.println("Quel vaisseau souhaitez-vous sélectionner? Veuillez indiquer son nom.");
 
-        System.out.println("Quel tonnage souhaitez vous embarquer");
-        int cargaison = sc.nextInt();
+            String vaisseauSelection = sc.nextLine();
 
-        TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(vaisseauSelection);
-        Vaisseau vaisseau = null;
-        switch (typeVaisseau){
-            case CHASSEUR:
-                vaisseau = chasseur;
-                break;
-            case FREGATE:
-                vaisseau = fregate;
-                break;
-            case CROISEUR:
-                vaisseau = croiseur;
-                break;
-            case CARGO:
-                vaisseau = cargo;
-                break;
-            case VAISSEAUMONDE:
-                vaisseau = vaisseauMonde;
-                break;
-        }
+            System.out.println("Sur quelle planète tellurique souhaitez-vous vous poser? Veuillez indiquer le nom de la planète.");
+            String planeteSelection = sc.nextLine();
 
-        PlaneteTellurique planete = null;
-        switch (planeteSelection){
-            case "Mercure":
-                planete = mercure;
-                break;
-            case "Venus":
-                planete = venus;
-                break;
-            case "Terre":
-                planete = terre;
-                break;
-            case "Mars":
-                planete = mars;
-                break;
-        }
+            System.out.println("Quel tonnage souhaitez vous embarquer");
+            int cargaison = sc.nextInt();
+            sc.nextLine();
 
- planete.accueillirVaisseau(vaisseau);
+            TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(vaisseauSelection);
+            Vaisseau vaisseau = null;
+            switch (typeVaisseau) {
+                case CHASSEUR:
+                    vaisseau = chasseur;
+                    break;
+                case FREGATE:
+                    vaisseau = fregate;
+                    break;
+                case CROISEUR:
+                    vaisseau = croiseur;
+                    break;
+                case CARGO:
+                    vaisseau = cargo;
+                    break;
+                case VAISSEAUMONDE:
+                    vaisseau = vaisseauMonde;
+                    break;
+            }
 
- int rejet = vaisseau.emporterCargaison(cargaison);
-        System.out.println("Le rejet est de " + rejet);
+            PlaneteTellurique planete = null;
+            switch (planeteSelection) {
+                case "Mercure":
+                    planete = mercure;
+                    break;
+                case "Venus":
+                    planete = venus;
+                    break;
+                case "Terre":
+                    planete = terre;
+                    break;
+                case "Mars":
+                    planete = mars;
+                    break;
+            }
 
+            if (!planete.restePlaceDisponible()) {
+                System.out.println("Le vaisseau ne peut pas se poser sur la planète par manque de place dans la baie.");
+            } else {
+                planete.accueillirVaisseau(vaisseau);
 
+                int rejet = vaisseau.emporterCargaison(cargaison);
+                System.out.println("Le rejet est de " + rejet);
 
+            }
+            System.out.println("Voulez-vous recommencer?");
+            recommencer = sc.nextLine();
+        } while (recommencer.equalsIgnoreCase("oui"));
     }
-    }
-
+}
