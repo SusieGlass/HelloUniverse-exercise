@@ -1,4 +1,4 @@
-public class PlaneteTellurique  extends Planete implements Habitable{
+public class PlaneteTellurique  extends Planete implements Habitable {
 
     Vaisseau[] vaisseauxAccostes;
     /*Vaisseau vaisseauAccoste;*/
@@ -9,28 +9,31 @@ public class PlaneteTellurique  extends Planete implements Habitable{
         this.vaisseauxAccostes = new Vaisseau[tailleBaie];
     }
 
-    boolean restePlaceDisponible(){
-        for(int index = 0; index<vaisseauxAccostes.length; index++){
-            if (vaisseauxAccostes[index] == null){
+    boolean restePlaceDisponible() {
+        for (int index = 0; index < vaisseauxAccostes.length; index++) {
+            if (vaisseauxAccostes[index] == null) {
                 return true;
             }
         }
-                return false;
+        return false;
     }
 
     @Override
-    public void accueillirVaisseau(Vaisseau vaisseau) {
+    public void accueillirVaisseaux(Vaisseau... vaisseaux) {
 
-        if (vaisseau instanceof VaisseauDeGuerre) {
-            ((VaisseauDeGuerre) vaisseau).desactiverArmes();
-        }
-        nbTotalHumains += vaisseau.nbPassagers;
-        for (int index = 0; index<vaisseauxAccostes.length; index++){
-            if (vaisseauxAccostes[index] == null){
-                vaisseauxAccostes[index] = vaisseau;
-                break;
+        for (int i = 0; i < vaisseaux.length; i++){
+
+            if (vaisseaux[i] instanceof VaisseauDeGuerre) {
+                ((VaisseauDeGuerre) vaisseaux[i]).desactiverArmes();
+            }
+            nbTotalHumains = nbTotalHumains + vaisseaux[i].nbPassagers;
+
+            for (int index = 0; index < vaisseauxAccostes.length; index++) {
+                if (vaisseauxAccostes[index] == null) {
+                    vaisseauxAccostes[index] = vaisseaux[i];
+                    break;
+                }
             }
         }
     }
 }
-

@@ -37,6 +37,14 @@ public class HelloUniverse {
 
         Vaisseau chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
         chasseur.nbPassagers = 100;
+        Vaisseau chasseur2 = new VaisseauDeGuerre((TypeVaisseau.CHASSEUR));
+        chasseur2.nbPassagers = 4;
+        chasseur2.blindage = 156;
+        chasseur2.resistanceDuBouclier = 20;
+        Vaisseau chasseur3 = new VaisseauDeGuerre((TypeVaisseau.CHASSEUR));
+        chasseur3.nbPassagers = 5;
+        chasseur3.blindage = 160;
+        chasseur3.resistanceDuBouclier = 19;
 
         Vaisseau fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
         fregate.nbPassagers = 60;
@@ -49,6 +57,12 @@ public class HelloUniverse {
 
         Vaisseau cargo = new VaisseauCivil(TypeVaisseau.CARGO);
         cargo.nbPassagers = 160;
+        Vaisseau cargo2 = new VaisseauCivil(TypeVaisseau.CARGO);
+        cargo2.nbPassagers = 150;
+        cargo2.blindage = 1520;
+        cargo2.resistanceDuBouclier = 20;
+
+        terre.accueillirVaisseaux(chasseur2, chasseur3, cargo2);
 
         Scanner sc = new Scanner(System.in);
 
@@ -104,7 +118,7 @@ public class HelloUniverse {
             if (!planete.restePlaceDisponible()) {
                 System.out.println("Le vaisseau ne peut pas se poser sur la planète par manque de place dans la baie.");
             } else {
-                planete.accueillirVaisseau(vaisseau);
+                planete.accueillirVaisseaux(vaisseau);
 
                 int rejet = vaisseau.emporterCargaison(cargaison);
                 System.out.println("Le rejet est de " + rejet);
