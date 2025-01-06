@@ -115,7 +115,7 @@ public class HelloUniverse {
                     break;
             }
 
-            if (!planete.restePlaceDisponible()) {
+            if (!planete.restePlaceDisponible(vaisseau)) {
                 System.out.println("Le vaisseau ne peut pas se poser sur la planète par manque de place dans la baie.");
             } else {
                 planete.accueillirVaisseaux(vaisseau);
